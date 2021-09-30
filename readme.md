@@ -72,4 +72,4 @@ The script does not recursively look through Groups. Meaning that users inheriti
 ![Sample Permission Set Summary CSV imported to Excel](pictures/sample_Permission_Set_Summary_CSV_imported_to_excel.png)
 
 ## Sample Permission Set Inline Policy JSON file 
-![Sample Permission Set Inline Policy JSON file](pictures/sample_Permission_Set_Inline_Policy_JSON.png)# sso-permissions-reporter
+![Sample Permission Set Inline Policy JSON file](pictures/sample_Permission_Set_Inline_Policy_JSON.png)
