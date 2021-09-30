@@ -31,10 +31,11 @@ AWS SSO Permission Set Assignment Reporter consists of two script that exports i
 ## Usage
 
 1. Login to your AWS SSO Management Account with credentials to read from AWS Organizations and AWS SSO services using AWS CLI or AWS Access Keys  
-2. Run the scripts:
-3. `sso-account-permission-assignment-report.py` to create a CSV with all AWS Account assignments. 
-4. `sso-permission-set-report.py` to get a CSV summary file and JSON files of each permission set inline policy
-5. The CSV files can be imported to for example a spreadsheet or a database for further analysis.
+2. Set your region `aws configure set default.region eu-west-1v
+3. Run the scripts:
+4. `sso-account-permission-assignment-report.py` to create a CSV with all AWS Account assignments. 
+5. `sso-permission-set-report.py` to get a CSV summary file and JSON files of each permission set inline policy
+6. The CSV files can be imported to for example a spreadsheet or a database for further analysis.
 
 ## Dependencies
 ### Python 3
