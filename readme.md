@@ -62,12 +62,6 @@ Ensure you have at least these permissions in the AWS SSO Management account. Ev
 ## Known limitations
 The script does not recursively look through Groups. Meaning that users inheriting access through a group is not directly listed in the CSV output
 
-## License
-This script is licensed under the MIT-0 License. See the LICENSE file.
-
-## Authors
-This solution is created by Johan Jentell and Emelie Akerstrom. Andre Cavalcante added pagination token support.
-
 ## Sample created report files
 ![Sample created report files](pictures/sample_created_files.png)
 
