@@ -9,7 +9,7 @@ This tools uses the AWS SSO API to list all users, accounts, permission sets etc
 
 # AWS SSO Permission Set Assignment Reporter
 
-AWS SSO Permission Set Assignment Reporter consists of two script that exports information on the AWS SSO setup. The goal with the report is to be able to import the data into for example a spreadsheet and answer questions from the following perspectives:
+AWS SSO Permission Set Assignment Reporter consists of three script that exports information on the AWS SSO setup. The goal with the report is to be able to import the data into for example a spreadsheet and answer questions from the following perspectives:
 
 **1. For each AWS Account list:**
 
@@ -33,9 +33,10 @@ AWS SSO Permission Set Assignment Reporter consists of two script that exports i
 1. Login to your AWS SSO Management Account with credentials to read from AWS Organizations and AWS SSO services using AWS CLI or AWS Access Keys  
 2. Set your region `aws configure set default.region eu-west-1`
 3. Run the scripts:
-4. `sso-account-permission-assignment-report.py` to create a CSV with all AWS Account assignments. `python3 sso-permission-set-report.py`
-5. `sso-permission-set-report.py` to get a CSV summary file and JSON files of each permission set inline policy `python3 sso-permission-set-report.py`
-6. The CSV files can be imported to for example a spreadsheet or a database for further analysis.
+4. `sso-account-credential-report.py` to create a CSV with all Identity Store user accounts and their logon stats from the past 90 days. `python3 sso-account-credential-report.py`
+5. `sso-account-permission-assignment-report.py` to create a CSV with all AWS Account assignments. `python3 sso-permission-set-report.py`
+6. `sso-permission-set-report.py` to get a CSV summary file and JSON files of each permission set inline policy `python3 sso-permission-set-report.py`
+7. The CSV files can be imported to for example a spreadsheet or a database for further analysis.
 
 ## Dependencies
 ### Python 3
@@ -49,6 +50,7 @@ To install the required libraries run the following command in the root folder:
 ## Required permissions
 Ensure you have at least these permissions in the AWS SSO Management account. Even this list can probably be reduced further. 
 
+    "cloudtrail:LookupEvents",
     "organizations:DescribeOrganization",
     "organizations:DescribeAccount",
     "organizations:ListAccounts",
@@ -57,6 +59,7 @@ Ensure you have at least these permissions in the AWS SSO Management account. Ev
     "sso:List*",
     "identitystore:DescribeGroup",
     "identitystore:DescribeUser",
+    "identitystore:List*",
     "sso-directory:DescribeDirectory"
 
 ## Known limitations
