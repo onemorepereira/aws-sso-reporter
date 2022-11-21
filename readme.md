@@ -49,6 +49,7 @@ To install the required libraries run the following command in the root folder:
 
 ## Required permissions
 Ensure you have at least these permissions in the AWS SSO Management account. Even this list can probably be reduced further. 
+
     "cloudtrail:LookupEvents",
     "organizations:DescribeOrganization",
     "organizations:DescribeAccount",
