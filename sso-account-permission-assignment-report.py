@@ -128,14 +128,18 @@ Returns:
 """
 def describe_user(userId, identityStoreId):
     client = boto3.client('identitystore')
+    try:
+        response = client.describe_user(
+            IdentityStoreId=identityStoreId,
+            UserId=userId
+        )
+       username = response['UserName']
 
-    response = client.describe_user(
-        IdentityStoreId=identityStoreId,
-        UserId=userId
-    )
-    username = response['UserName']
-
-    return username
+       return username
+    except Exception as e:
+        print("[WARN] User was deleted while the report was running: " + str(userId))
+        username = "USER-GROUP"
+        return username    
 
 """
 describe_group
