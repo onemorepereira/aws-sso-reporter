@@ -7,6 +7,26 @@ Many customers with big AWS SSO environments struggle to create an overview over
 
 This tools uses the AWS SSO API to list all users, accounts, permission sets etc. and dumps it into a CSV file for additional parsing or viewing. 
 
+# Pivotree Prespective (Pivotree AWS CBA)
+
+This is a quick script which can be used to pull all users and groups in AWS SSO with the permissions they are assigned to. Make sure you have python and aws-cli installed locally.
+To use it in the CBA account please follow the below steps:
+
+- Copy and paste the temporary credentials for role - `SSOAudit` account -`Pivotree AWS CBA` in the terminal.
+- Set your region using - `aws configure set default.region ca-central-1`
+- Execute `python3 sso-permission-set-report.py`
+- The process will take ~15 minutes to complete and the report will be available as a CSV in `./aws-sso-reporter/` with name similar to `sso_report_Account_Assignments_2023-06-01_15.16.20`
+
+# Pivotree Prespective (Pivotree Test Org)
+
+This is a quick script which can be used to pull all users and groups in AWS SSO with the permissions they are assigned to. Make sure you have python and aws-cli installed locally.
+To use it in the CBA account please follow the below steps:
+
+- Copy and paste the temporary credentials for role - `SSOAudit` account -`Pivotree Org Test 1` in the terminal.
+- Set your region using - `aws configure set default.region us-east-1`
+- Execute `python3 sso-permission-set-report.py`
+- The process will take ~15 minutes to complete and the report will be available as a CSV in `./aws-sso-reporter/` with name similar to `sso_report_Account_Assignments_2023-06-01_15.16.20`
+
 # AWS SSO Permission Set Assignment Reporter
 
 AWS SSO Permission Set Assignment Reporter consists of two script that exports information on the AWS SSO setup. The goal with the report is to be able to import the data into for example a spreadsheet and answer questions from the following perspectives:

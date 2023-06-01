@@ -4,7 +4,6 @@ import json
 import string
 import time
 import unicodedata
-
 from datetime import datetime
 
 """
@@ -128,15 +127,15 @@ Returns:
 """
 def describe_user(userId, identityStoreId):
     client = boto3.client('identitystore')
-
-    response = client.describe_user(
-        IdentityStoreId=identityStoreId,
-        UserId=userId
-    )
-    username = response['UserName']
-
-    return username
-
+    try:
+        response = client.describe_user(
+            IdentityStoreId=identityStoreId,
+            UserId=userId
+        )
+        username = response['UserName']
+        return username
+    except Exception as e:
+        print("Exception occured ", e)
 """
 describe_group
 
@@ -195,7 +194,6 @@ def create_report(account_list, sso_instance, permission_sets_list, break_after=
                 account_assignments_dic['AccountName'] = account['name']
                 account_assignments_dic['PermissionSet'] = permission_set
                 account_assignments_dic['ObjectType'] = account_assignment['PrincipalType']
-
                 # find human friendly name for user id if principal type is "USER"
                 if account_assignments_dic['ObjectType'] == "USER":
                     username = describe_user(account_assignment['PrincipalId'], sso_instance['identityStore'])
